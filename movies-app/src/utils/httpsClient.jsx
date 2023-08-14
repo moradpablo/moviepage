@@ -2,8 +2,7 @@ const API = 'https://api.themoviedb.org/3';
 function getHttp(path) {
   return fetch(API + path, {
     headers: {
-      Authorization:
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3MjJmNDk0NWViNGMzZDYwZjZkNmUxZGVmY2ViOGQ0MCIsInN1YiI6IjY0ZDI5YTczYzNiZmZlMGYwNTQ0ZmYyZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oc6dF7_69CJ7I05VR71qND7C17rJO1zdGobzzLQ-ovg',
+      Authorization: 'Bearer ' + process.env.API_TOKEN,
     },
   })
     .then((result) => {
