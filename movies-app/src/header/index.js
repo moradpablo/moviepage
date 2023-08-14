@@ -6,7 +6,7 @@ function Header() {
     <div className={styles.headerContainer}>
       <Link to="/">
         {' '}
-        <h1>Movie</h1>
+        <h1>Movies</h1>
       </Link>
     </div>
   );

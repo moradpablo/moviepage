@@ -1,14 +1,22 @@
-import React from 'react';
-import movies from '../movies.json';
+import React, { useEffect, useState } from 'react';
 import MovieCards from '../cards/MovieCards';
 import styles from './home.module.css';
+import getHttp from '../utils/httpsClient';
 
 function Home() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    getHttp('/discover/movie').then((data) => {
+      setMovies(data.results);
+    });
+  }, []);
+
   return (
     <ul className={styles.movieGrid}>
-      {movies.map((movie) => {
-        return <MovieCards key={movie.id} movie={movie} />;
-      })}
+      {movies.map((movie) => (
+        <MovieCards key={movie.id} movie={movie} />
+      ))}
     </ul>
   );
 }
